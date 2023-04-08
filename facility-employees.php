@@ -1,3 +1,10 @@
+<?php
+    $queries = array();
+    parse_str($_SERVER['QUERY_STRING'], $queries);
+    $name = $queries["name"];
+    $phone_number = $queries["phone_number"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,13 +15,6 @@
   <link rel="stylesheet" type="text/css" href="index.css" />
   <script src="utils.js"></script>
   <title>Facility Employees</title>
-  <script language="php">
-    print("Hello, World!");
-    $queries = array();
-    parse_str($_SERVER['QUERY_STRING'], $queries);
-    $name = $queries["name"];
-    $phone_number = $queries["phone_number"];
-  </script>
 </head>
 
 <body>
@@ -23,9 +23,10 @@
       <h1 style="margin-bottom:12px;">
         Employees currently working at a specific facility (7)
       </h1>
-      <h2>Name:
-        <?= $name; ?>, Phone Number:
-        <?= $phone_number; ?></span>
+      <h2>
+        <?php
+        echo("Name: ".$name.", Phone Number: ".$phone_number);
+        ?>
       </h2>
     </div>
   </div>
