@@ -1,8 +1,10 @@
 <?php
-    $queries = array();
-    parse_str($_SERVER['QUERY_STRING'], $queries);
-    $name = $queries["name"];
-    $phone_number = $queries["phone-number"];
+  include "init_db.php";
+
+  $queries = array();
+  parse_str($_SERVER['QUERY_STRING'], $queries);
+  $name = $queries["name"];
+  $phone_number = $queries["phone-number"];
 ?>
 
 <!DOCTYPE html>
