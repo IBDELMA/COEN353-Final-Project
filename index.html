@@ -3,16 +3,17 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>JavaScript Hello World Example</title>
+  <title>Hello, World!</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script>
-    alert('Hello, World!');
+    $.get("http://localhost:3000/", function (data, status) {
+      $("#app").html(data)
+    })
   </script>
 </head>
 
 <body>
-  <div>
-    Hello, World!
-  </div>
+  <div class="app"></div>
 </body>
 
 </html>
