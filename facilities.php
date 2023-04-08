@@ -8,17 +8,17 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../normalize.css" />
-  <link rel="stylesheet" type="text/css" href="../index.css" />
+  <link rel="stylesheet" type="text/css" href="normalize.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
 
-  <title>Vaccinations</title>
+  <title>Facilities</title>
 </head>
 
 <body>
   <div class="container-parent">
     <div class="container">
       <h1 style="margin-bottom:12px;">
-        Vaccinations (3)
+        Facilities (1&6)
       </h1>
     </div>
   </div>

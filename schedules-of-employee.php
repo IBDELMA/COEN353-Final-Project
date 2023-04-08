@@ -3,8 +3,7 @@
 
   $queries = array();
   parse_str($_SERVER['QUERY_STRING'], $queries);
-  $name = $queries["name"];
-  $phone_number = $queries["phone-number"];
+  $medicare_number = $queries["medicare-number"];
 ?>
 
 <!DOCTYPE html>
@@ -13,21 +12,21 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../normalize.css" />
-  <link rel="stylesheet" type="text/css" href="../index.css" />
+  <link rel="stylesheet" type="text/css" href="normalize.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
 
-  <title>Facility Employees</title>
+  <title>Schedules of Employee</title>
 </head>
 
 <body>
   <div class="container-parent">
     <div class="container">
       <h1 style="margin-bottom:12px;">
-        Employees currently working at a specific facility (7)
+      Schedules of employee (5&8)
       </h1>
       <div style="font-size:20px">
         <?php
-        echo("Name: ".$name.", Phone Number: ".$phone_number);
+        echo("Medicare #: ".$medicare_number);
         ?>
       </div>
     </div>

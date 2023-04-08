@@ -8,17 +8,17 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="../normalize.css" />
-  <link rel="stylesheet" type="text/css" href="../index.css" />
+  <link rel="stylesheet" type="text/css" href="normalize.css" />
+  <link rel="stylesheet" type="text/css" href="index.css" />
 
-  <title>Never Infected</title>
+  <title>Triply Infected</title>
 </head>
 
 <body>
   <div class="container-parent">
     <div class="container">
       <h1 style="margin-bottom:12px;">
-        Never infected nurses/doctors (17)
+        Triply infected nurses/doctors (16)
       </h1>
     </div>
   </div>
