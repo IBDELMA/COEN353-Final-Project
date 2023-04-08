@@ -2,7 +2,7 @@
     $queries = array();
     parse_str($_SERVER['QUERY_STRING'], $queries);
     $name = $queries["name"];
-    $phone_number = $queries["phone_number"];
+    $phone_number = $queries["phone-number"];
 ?>
 
 <!DOCTYPE html>
