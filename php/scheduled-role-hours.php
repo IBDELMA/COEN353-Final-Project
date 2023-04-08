@@ -13,23 +13,23 @@
 <head>
   <meta charset="UTF-8">
   <link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="normalize.css" />
-  <link rel="stylesheet" type="text/css" href="index.css" />
-  <script src="utils.js"></script>
-  <title>Facility Employees</title>
+  <link rel="stylesheet" type="text/css" href="../normalize.css" />
+  <link rel="stylesheet" type="text/css" href="../index.css" />
+
+  <title>Scheduled Role Hours</title>
 </head>
 
 <body>
   <div class="container-parent">
     <div class="container">
       <h1 style="margin-bottom:12px;">
-        Employees currently working at a specific facility (7)
+        Hours scheduled by roles (12)
       </h1>
-      <h2>
+      <div style="font-size:20px">
         <?php
         echo("Name: ".$name.", Phone Number: ".$phone_number);
         ?>
-      </h2>
+      </div>
     </div>
   </div>
 </body>
