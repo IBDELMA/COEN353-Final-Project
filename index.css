@@ -11,3 +11,22 @@ hr.solid {
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Roboto', sans-serif;
 }
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+input, label {
+  display:block;
+}
+.grid-form > input {
+  width: 100%;
+}
+.boxsizingBorder {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+textarea {
+  width: 100%;
+}
