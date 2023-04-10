@@ -77,3 +77,12 @@ INSERT INTO PostalCode
 (`Postal Code`, City, Province)
 VALUES('H1Z 1J9', 'Montreal', 'Quebec');
 
+
+
+INSERT INTO Scheduled
+(`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
+VALUES('PJC Snowden', '514-444-8123', 'ROLE865495682758', '9:00', '14:00', '2023-04-08');
+
+INSERT INTO Scheduled
+(`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
+VALUES('PJC Snowden', '514-444-8123', 'ROLE865495682758', '22:30', '23:30', '2023-04-08');
