@@ -3,6 +3,7 @@ DELIMITER $$
 CREATE TRIGGER jbc353_4.CheckSchedConflictInsert
 BEFORE INSERT ON jbc353_4.Scheduled 
 FOR EACH ROW
+BEGIN
 IF EXISTS (
 	SELECT * FROM Scheduled
 	WHERE Scheduled.`Date` = NEW.`Date` AND Scheduled.`Employee Medicare Number` = NEW.`Employee Medicare Number`
@@ -14,7 +15,13 @@ IF EXISTS (
 	OR (TIMEDIFF(Scheduled.`Start Time`, NEW.`End Time`) < TIME('1:00') AND TIMEDIFF(Scheduled.`Start Time`, NEW.`End Time`) >= TIME('0:00'))))
 THEN
 	SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = "Scheduling time conflict. Unable to add this schedule for this time.";
-END IF; $$ 
+ELSE 
+	IF DATEDIFF(NEW.`Date`, current_date()) > 14
+	THEN
+	SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = "Unable to add this schedule more than two weeks in advance.";
+	END IF;
+END IF; 
+END;$$ 
 delimiter ;
 
 
@@ -24,6 +31,7 @@ $$
 CREATE TRIGGER jbc353_4.CheckSchedConflictUpdate
 BEFORE UPDATE ON jbc353_4.Scheduled 
 FOR EACH ROW
+BEGIN
 IF EXISTS (
 	SELECT * FROM Scheduled
 	WHERE Scheduled.`Date` = NEW.`Date` AND Scheduled.`Employee Medicare Number` = NEW.`Employee Medicare Number`
@@ -35,5 +43,11 @@ IF EXISTS (
 	OR (TIMEDIFF(Scheduled.`Start Time`, NEW.`End Time`) < TIME('1:00') AND TIMEDIFF(Scheduled.`Start Time`, NEW.`End Time`) >= TIME('0:00'))))
 THEN
 	SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = "Scheduling time conflict. Unable to update schedule for this time.";
-END IF; $$ 
+ELSE 
+	IF DATEDIFF(NEW.`Date`, current_date()) > 14
+	THEN
+	SIGNAL SQLSTATE '50001' SET MESSAGE_TEXT = "Unable to add this schedule more than two weeks in advance.";
+	END IF;
+END IF; 
+END;$$ 
 delimiter ;
