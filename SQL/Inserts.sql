@@ -1,12 +1,95 @@
 -- Delete all Current Table entries
 
 DELETE FROM Employed;
-DELETE FROM Facility;
-DELETE FROM Employee;
 DELETE FROM PostalCode;
 DELETE FROM Vaccination;
 DELETE FROM Infection;
 DELETE FROM Scheduled;
+DELETE FROM Facility;
+DELETE FROM Employee;
+
+-- -----------------------
+-- Insert PostalCodes
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H6Z 1J6', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H1Z 1J9', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3C 3C3', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H4D 4D4', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H5E 5E5', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H1A 1A1', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H2B 2B2', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3Z 3J8', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H1Z 2J0', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H6F 6F6', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H7G 7G7', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H8H 8H8', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H9J 9J9', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H0K 0K0', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H1L 1L1', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3B 9P3', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3A 9Z3', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3A 3A3', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3A 4B4', 'Montreal', 'Quebec');
+
+INSERT INTO PostalCode
+(`Postal Code`, City, Province)
+VALUES('H3A 5C5', 'Montreal', 'Quebec');
 
 -- -----------------------
 -- Insert Employees
@@ -173,110 +256,26 @@ VALUES('Canada National Hospital', '514-444-3456', 'NBLA865495682758', '2023-04-
 
 
 -- -----------------------
--- Insert PostalCodes
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H6Z 1J6', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H1Z 1J9', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3C 3C3', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H4D 4D4', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H5E 5E5', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H1A 1A1', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H2B 2B2', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3Z 3J8', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H1Z 2J0', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H6F 6F6', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H7G 7G7', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H8H 8H8', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H9J 9J9', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H0K 0K0', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H1L 1L1', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3B 9P3', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3A 9Z3', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3A 3A3', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3A 4B4', 'Montreal', 'Quebec');
-
-INSERT INTO PostalCode
-(`Postal Code`, City, Province)
-VALUES('H3A 5C5', 'Montreal', 'Quebec');
-
-
--- -----------------------
 -- Insert Vaccination
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+(`Type`, `Dose Number`, `Facility Phone Number`, `Facility Name`, `Employee Medicare Number`, `Date`)
 VALUES('Pfizer', 1, '514-555-6161', 'CLSC Concordia', 'ASMI865495682758', '2020-02-02');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+(`Type`, `Dose Number`, `Facility Phone Number`, `Facility Name`, `Employee Medicare Number`, `Date`)
 VALUES('Pfizer', 2, '514-444-8123', 'PJC Snowden', 'BSHE865495682758', '2020-03-03');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+(`Type`, `Dose Number`, `Facility Phone Number`, `Facility Name`, `Employee Medicare Number`, `Date`)
 VALUES('Pfizer', 3, '514-444-1234', 'Central Hospital', 'CWHE865495682758', '2020-04-04');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+(`Type`, `Dose Number`, `Facility Phone Number`, `Facility Name`, `Employee Medicare Number`, `Date`)
 VALUES('Pfizer', 4, '514-444-2345', 'Clinic Riverside', 'ROLE865495682758', '2020-05-05');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+(`Type`, `Dose Number`, `Facility Phone Number`, `Facility Name`, `Employee Medicare Number`, `Date`)
 VALUES('Pfizer', 5, '514-444-3456', 'Canada National Hospital', 'KWEA865495682758', '2020-06-06');
 
 
@@ -284,63 +283,63 @@ VALUES('Pfizer', 5, '514-444-3456', 'Canada National Hospital', 'KWEA86549568275
 -- Insert Infection
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-01', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-02', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-03', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-04', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-05', 'KWEA865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-06', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-07', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
-VALUES('COVID-19', '2023-04-08', 'CWHE865495682758');
+(`Type`, `Date`, `Employee Medicare Number`)
+VALUES('COVID-19', '2023-04-01', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-09', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-10', 'KWEA865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-05', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-04', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-14', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('Influenza', '2023-04-02', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Employee Medicare Number')
+(`Type`, `Date`, `Employee Medicare Number`)
 VALUES('COVID-19', '2023-04-01', 'KWEA865495682758');
 
 -- -----------------------
