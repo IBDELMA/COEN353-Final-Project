@@ -333,7 +333,7 @@ VALUES('Influenza', '2023-04-04', 'BSHE865495682758');
 
 INSERT INTO Infection
 ('Type', 'Date', 'Employee Medicare Number')
-VALUES('COVID-19', '2023-04-03', 'CWHE865495682758');
+VALUES('COVID-19', '2023-04-14', 'CWHE865495682758');
 
 INSERT INTO Infection
 ('Type', 'Date', 'Employee Medicare Number')
