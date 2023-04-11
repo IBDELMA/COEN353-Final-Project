@@ -2,8 +2,8 @@
   include "init_db.php";
 
   $r = mysqli_query($db, "SELECT *
-	FROM Infection e
-	ORDER BY e.`Date` ASC");
+	FROM Infection
+	ORDER BY `Date` ASC");
 ?>
 
 <!DOCTYPE html>

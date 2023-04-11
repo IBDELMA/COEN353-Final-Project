@@ -1,10 +1,15 @@
 <?php
   include "init_db.php";
 
-  $r = mysqli_query($db, "SELECT *
+  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, pe.`City` as `City of Residence`, SUM(f) as `Current Facilities`
 	FROM Employee e
-	WHERE e.`Role` =  `Doctor`
-	ORDER BY e.`First Name` ASC");
+  JOIN Employed ed ON e.`Medicare Number` = ed.`Medicare Number`
+  JOIN Facility f ON f.`Name` = ed.`Facility Name` AND f.`Phone Number` = ed.`Facility Phone Number`
+  JOIN PostalCode p ON p.`Postal Code` = f.`Postal Code`
+  JOIN PostalCode pe ON pe.`Postal Code` = e.`Postal Code`
+  GROUP BY e.`Medicare Number`
+	WHERE e.`Role` =  `Doctor` AND p.`Province` = `Quebec`
+	ORDER BY p.`City` ASC, SUM(p) DESC;");
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +33,10 @@
       </h1>
       <table border='1'>
       <tr>
-        <th>Medicare Number</th>
-        <th>Last Name</th>
         <th>First Name</th>
-        <th>Birth Date</th>
-        <th>Address</th>
-        <th>Postal Code</th>
-        <th>Phone Number</th>
-        <th>Citizenship</th>
-        <th>Email</th>
-        <th>Role</th>
+        <th>Last Name</th>
+        <th>City of Residence</th>
+        <th>Current Facilities</th>
       </tr>
       <?php
       while(true) {
@@ -45,15 +44,11 @@
         if($assoc == null) {
           break;
         }
-        echo("<tr><td>".$assoc["Medicare Number"]."</td>"
+        echo("<tr><td>".$assoc["First Name"]."</td>"
         ."<td>".$assoc["Last Name"]."</td>"
         ."<td>".$assoc["First Name"]."</td>"
-        ."<td>".$assoc["Birth Date"]."</td>"
-        ."<td>".$assoc["Address"]."</td>"
-        ."<td>".$assoc["Postal Code"]."</td>"
-        ."<td>".$assoc["Citizenship"]."</td>"
-        ."<td>".$assoc["Email"]."</td>"
-        ."<td>".$assoc["Role"]."</td></tr>");
+        ."<td>".$assoc["City of Residence"]."</td>"
+        ."<td>".$assoc["Current Facilities"]."</td></tr>");
       }
       ?>  
       </table>

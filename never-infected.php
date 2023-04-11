@@ -1,5 +1,13 @@
 <?php
   include "init_db.php";
+  
+  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, e.`Email`, e.`Address`, ed.`Start Date`, e.`Birth Date`, SUM(TIMESTAMPDIFF(Hour, s.`Start Time`, s.`End Time`)) as Hours
+	FROM Employee e
+  JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
+  JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+  GROUP BY e.`Medicare Number`
+	WHERE (e.`Role` = `Manager` OR e.`Role` = 'Nurse') AND e.`Medicare Number` NOT IN (SELECT `Employee Medicare Number` FROM Infection)
+	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC");
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +29,33 @@
       <h1 style="margin-bottom:12px;">
         Never infected nurses/doctors (17)
       </h1>
+
+      <table border='1'>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>First Day Of Work</th>
+        <th>Date Of Birth</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Hours Scheduled</th>
+      </tr>
+      <?php
+      while(true) {
+        $assoc = mysqli_fetch_assoc($r);
+        if($assoc == null) {
+          break;
+        }
+        echo("<tr><td>".$assoc["First Name"]."</td>"
+        ."<td>".$assoc["Last Name"]."</td>"
+        ."<td>".$assoc["Start Date"]."</td>"
+        ."<td>".$assoc["Birth Date"]."</td>"
+        ."<td>".$assoc["Email"]."</td>"
+        ."<td>".$assoc["Address"]."</td>"
+        ."<td>".$assoc["Hours"]."</td></tr>");
+      }
+      ?>  
+      </table>
     </div>
   </div>
 </body>
