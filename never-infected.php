@@ -5,9 +5,12 @@
 	FROM Employee e
   JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
   JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE (e.`Role` = 'Doctor' OR e.`Role` = 'Nurse') AND e.`Medicare Number` NOT IN (SELECT `Employee Medicare Number` FROM Infection WHERE `Type` = 'COVID-19')
   GROUP BY e.`Medicare Number`
-	WHERE (e.`Role` = 'Manager' OR e.`Role` = 'Nurse') AND e.`Medicare Number` NOT IN (SELECT `Employee Medicare Number` FROM Infection)
 	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>

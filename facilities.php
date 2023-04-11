@@ -1,11 +1,10 @@
 <?php
   include "init_db.php";
-  $r = mysqli_query($db, "SELECT f.Name, f.Address, pc.City, pc.Province, f.`Postal Code`, f.`Phone Number`, f.`Web Address`, f.`Type`, f.Capacity, CONCAT(e.`First Name`, ' ', e.`Last Name`) AS `General Manager Name`, COUNT(*) AS `Number of Current Employees`  
+  $r = mysqli_query($db, "SELECT f.Name, f.Address, pc.City, pc.Province, f.`Postal Code`, f.`Phone Number`, f.`Web Address`, f.`Type`, f.Capacity, CONCAT(e.`First Name`, ' ', e.`Last Name`) AS `General Manager Name`, COUNT(ed.`End Date`) AS `Number of Current Employees`  
 	FROM Facility f
 	JOIN Employee e ON e.`Medicare Number` = f.`Manager Medicare Number`
 	JOIN PostalCode pc ON pc.`Postal Code` = f.`Postal Code`
 	JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
-	WHERE ed.`End Date` IS NULL
 	GROUP BY f.Name, f.`Phone Number` 
 	ORDER BY pc.Province, pc.City, f.`Type`, `Number of Current Employees` ASC;");  
   if(is_bool($r) && !$r) {

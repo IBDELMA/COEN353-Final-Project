@@ -1,11 +1,11 @@
 <?php
   include "init_db.php";
 
-  $r = mysqli_query($db, "SELECT e.`First Name`,  e.`Last Name`, i.`Date`, ed.`Facility Name`
+  $r = mysqli_query($db, "SELECT e.`First Name`,  e.`Last Name`, i.`Date`, ed.`Facility Name`, i.`Type`
 	FROM Employee e
 	JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
 	JOIN Infection i ON i.`Employee Medicare Number` = e.`Medicare Number`
-	WHERE e.`Role` = 'Doctor' AND i.`Date` >= DATE_ADD(current_date(), INTERVAL -2 week)
+	WHERE e.`Role` = 'Doctor' AND i.`Date` >= DATE_ADD(current_date(), INTERVAL -2 week) AND i.`Type` = 'COVID-19'
 	ORDER BY ed.`Facility Name` ASC;");
   if(is_bool($r) && !$r) {
     echo("Query error: ".$db -> error);
@@ -36,6 +36,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Date</th>
+        <th>Type</th>
         <th>Facility</th>
       </tr>
       <?php
@@ -47,7 +48,8 @@
         echo("<tr><td>".$assoc["First Name"]."</td>"
         ."<td>".$assoc["Last Name"]."</td>"
         ."<td>".$assoc["Date"]."</td>"
-        ."<td>".$assoc["Facility"]."</td></tr>");
+        ."<td>".$assoc["Type"]."</td>"
+        ."<td>".$assoc["Facility Name"]."</td></tr>");
       }
       ?>  
       </table>

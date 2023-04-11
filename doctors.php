@@ -1,15 +1,18 @@
 <?php
   include "init_db.php";
 
-  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, pe.`City` as `City of Residence`, SUM(f) as `Current Facilities`
+  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, pe.`City` as `City of Residence`, COUNT(*) as `Current Facilities`
 	FROM Employee e
   JOIN Employed ed ON e.`Medicare Number` = ed.`Medicare Number`
   JOIN Facility f ON f.`Name` = ed.`Facility Name` AND f.`Phone Number` = ed.`Facility Phone Number`
   JOIN PostalCode p ON p.`Postal Code` = f.`Postal Code`
   JOIN PostalCode pe ON pe.`Postal Code` = e.`Postal Code`
+	WHERE e.`Role` = 'Doctor' AND p.`Province` = 'Quebec'
   GROUP BY e.`Medicare Number`
-	WHERE e.`Role` =  `Doctor` AND p.`Province` = `Quebec`
-	ORDER BY p.`City` ASC, SUM(p) DESC;");
+	ORDER BY p.`City` ASC, `Current Facilities` DESC;");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +49,6 @@
         }
         echo("<tr><td>".$assoc["First Name"]."</td>"
         ."<td>".$assoc["Last Name"]."</td>"
-        ."<td>".$assoc["First Name"]."</td>"
         ."<td>".$assoc["City of Residence"]."</td>"
         ."<td>".$assoc["Current Facilities"]."</td></tr>");
       }

@@ -1,5 +1,17 @@
 <?php
   include "init_db.php";
+
+  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, ed.`Start Date`, e.`Role`, e.`Birth Date`, e.`Email`, SUM(TIMESTAMPDIFF(Hour, s.`Start Time`, s.`End Time`)) as Hours
+	FROM Employee e
+  JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
+	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+  JOIN Infection i ON i.`Medicare Number` = e.`Employee Medicare Number`
+	WHERE (e.`Role` = 'Doctor' OR e.`Role` = 'Nurse') AND  (SELECT `Employee Medicare Number` FROM Infection WHERE `Type` = 'COVID-19')
+  GROUP BY e.`Medicare Number`
+	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>
