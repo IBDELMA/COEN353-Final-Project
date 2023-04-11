@@ -76,4 +76,3 @@ VALUES('H3A 9Z3', 'Montreal', 'Quebec');
 INSERT INTO PostalCode
 (`Postal Code`, City, Province)
 VALUES('H1Z 1J9', 'Montreal', 'Quebec');
-

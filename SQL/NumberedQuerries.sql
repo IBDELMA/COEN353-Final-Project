@@ -8,8 +8,6 @@ SELECT f.Name, f.Address, pc.City, pc.Province, f.`Postal Code`, f.`Phone Number
 	GROUP BY f.Name, f.`Phone Number` 
 	ORDER BY pc.Province, pc.City, f.`Type`, `Number of Current Employees` ASC;
 
-
-
 -- Querry #7
 SELECT e.`First Name`, e.`Last Name`, ed.`Start Date`, e.`Birth Date`, e.`Medicare Number`, e.`Phone Number`, e.Address, pc.City, pc.Province, e.`Postal Code`, e.Citizenship, e.Email  
 	FROM Facility f
@@ -18,3 +16,32 @@ SELECT e.`First Name`, e.`Last Name`, ed.`Start Date`, e.`Birth Date`, e.`Medica
 	JOIN PostalCode pc ON pc.`Postal Code` = e.`Postal Code`  
 	WHERE f.Name = 'CLSC Concordia' AND f.`Phone Number` = '514-555-6161' AND ed.`End Date` IS NULL 
 	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC;
+
+-- Query #8
+SELECT s.`Facility Name`, s.`Date`, s.`Start Time`, s.`End Time`
+	FROM Employee e
+	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE s.`Start Time` >= `15/09/2020` AND s.`End Time` <= `15/10/2020` 
+	ORDER BY s.`Facility Name`, DATEPART(dayofyear, s.'Date'), s.`Start Time` ASC;
+
+-- Query #9
+SELECT e.`First Name`,  e.`Last Name`, i.`Date`, e.`Facility`
+	FROM Employee e
+	JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
+	JOIN Infection i ON i.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE e.`Role` =  `Doctor` AND i.`Date` IS NOT NULL
+	ORDER BY e.`Facility`
+
+-- Query #10
+SELECT e.`Email`
+	FROM Facility f
+	JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
+	JOIN Employee e ON e.`Medicare Number` = ed.`Medicare Number`
+	ORDER BY e.`Start Date` ASC
+
+-- Query #11
+SELECT e.`Firt Name`, e.`Last Name`, e.`Role`
+	FROM Employee e
+	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE s.`Start Time` <= DATEADD(week, -2, GETDATE()) AND (e.`Role` = `Doctor` OR e.`Role` = 'Nurse')
+	ORDER BY e.`First Name` ASC
