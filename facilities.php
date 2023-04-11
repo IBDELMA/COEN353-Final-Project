@@ -1,6 +1,15 @@
 <?php
   include "init_db.php";
-  $r = mysqli_query($db, "SELECT * FROM Facility;");  
+  $r = mysqli_query($db, "SELECT f.Name, f.Address, pc.City, pc.Province, f.`Postal Code`, f.`Phone Number`, f.`Web Address`, f.`Type`, f.Capacity, CONCAT(e.`First Name`, ' ', e.`Last Name`) AS `General Manager Name`, COUNT(ed.`End Date`) AS `Number of Current Employees`  
+	FROM Facility f
+	JOIN Employee e ON e.`Medicare Number` = f.`Manager Medicare Number`
+	JOIN PostalCode pc ON pc.`Postal Code` = f.`Postal Code`
+	JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
+	GROUP BY f.Name, f.`Phone Number` 
+	ORDER BY pc.Province, pc.City, f.`Type`, `Number of Current Employees` ASC;");  
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
   // Name, `Phone_Number`, Address, `Postal_Code`, Capacity, `Type`, `Web_Address`, `Manager_Medicare_Number`
 ?>
 
@@ -26,13 +35,15 @@
       <table border='1'>
       <tr>
         <th>Name</th>
+        <th>City</th>
+        <th>Province</th>
+        <th>Postal Code</th>
         <th>Phone Number</th>
-        <th>Address</th>
-        <th>Postal</th>
-        <th>Capacity</th>
-        <th>Type</th>
         <th>Web Address</th>
-        <th>Manager Medicare Number</th>
+        <th>Type</th>
+        <th>Capacity</th>
+        <th>General Manager Name</th>
+        <th>Number of Current Employees</th>
       </tr>
       <?php
       while(true) {
@@ -41,13 +52,15 @@
           break;
         }
         echo("<tr><td>".$assoc["Name"]."</td>"
-        ."<td>".$assoc["Phone Number"]."</td>"
-        ."<td>".$assoc["Address"]."</td>"
+        ."<td>".$assoc["City"]."</td>"
+        ."<td>".$assoc["Province"]."</td>"
         ."<td>".$assoc["Postal Code"]."</td>"
-        ."<td>".$assoc["Capacity"]."</td>"
-        ."<td>".$assoc["Type"]."</td>"
+        ."<td>".$assoc["Phone Number"]."</td>"
         ."<td>".$assoc["Web Address"]."</td>"
-        ."<td>".$assoc["Manager Medicare Number"]."</td></tr>");
+        ."<td>".$assoc["Type"]."</td>"
+        ."<td>".$assoc["Capacity"]."</td>"
+        ."<td>".$assoc["General Manager Name"]."</td>"
+        ."<td>".$assoc["Number of Current Employees"]."</td></tr>");
       }
       ?>  
       </table>
