@@ -21,8 +21,8 @@ SELECT e.`First Name`, e.`Last Name`, ed.`Start Date`, e.`Birth Date`, e.`Medica
 SELECT s.`Facility Name`, s.`Date`, s.`Start Time`, s.`End Time`
 	FROM Employee e
 	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
-	WHERE s.`Start Time` >= `15/09/2020` AND s.`End Time` <= `15/10/2020` 
-	ORDER BY s.`Facility Name`, DATEPART(dayofyear, s.'Date'), s.`Start Time` ASC;
+	WHERE s.`Start Time` >= '7:00' AND s.`End Time` <= '23:00' 
+	ORDER BY s.`Facility Name`, s.`Start Time` ASC;
 
 -- Query #9
 SELECT e.`First Name`,  e.`Last Name`, i.`Date`, e.`Facility`
