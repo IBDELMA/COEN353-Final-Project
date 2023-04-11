@@ -260,24 +260,24 @@ VALUES('H3A 5C5', 'Montreal', 'Quebec');
 -- Insert Vaccination
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Medicare Number', 'Date')
-VALUES('Pfizer', '1', '514-555-6161', 'CLSC Concordia', 'ASMI865495682758', '2020-02-02')
+('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+VALUES('Pfizer', 1, '514-555-6161', 'CLSC Concordia', 'ASMI865495682758', '2020-02-02');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Medicare Number', 'Date')
-VALUES('Pfizer', '2', '514-444-8123', 'PJC Snowden', 'BSHE865495682758', '2020-03-03')
+('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+VALUES('Pfizer', 2, '514-444-8123', 'PJC Snowden', 'BSHE865495682758', '2020-03-03');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Medicare Number', 'Date')
-VALUES('Pfizer', '3', '514-444-1234', 'Central Hospital', 'CWHE865495682758', '2020-04-04')
+('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+VALUES('Pfizer', 3, '514-444-1234', 'Central Hospital', 'CWHE865495682758', '2020-04-04');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Medicare Number', 'Date')
-VALUES('Pfizer', '4', '514-444-2345', 'Clinic Riverside', 'ROLE865495682758', '2020-05-05')
+('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+VALUES('Pfizer', 4, '514-444-2345', 'Clinic Riverside', 'ROLE865495682758', '2020-05-05');
 
 INSERT INTO Vaccination
-('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Medicare Number', 'Date')
-VALUES('Pfizer', '5', '514-444-3456', 'Canada National Hospital', 'KWEA865495682758', '2020-06-06')
+('Type', 'Dose Number', 'Facility Phone Number', 'Facility Name', 'Employee Medicare Number', 'Date')
+VALUES('Pfizer', 5, '514-444-3456', 'Canada National Hospital', 'KWEA865495682758', '2020-06-06');
 
 
 -- -----------------------
