@@ -9,9 +9,12 @@
   $r = mysqli_query($db, "SELECT e.`Role`, SUM(TIMESTAMPDIFF(Hour, s.`Start Time`, s.`End Time`)) as Hours
 	FROM Employee e
 	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+  WHERE s.`Facility Name` = '$name' AND s.`Facility Phone Number` = '$phone_number'
   GROUP BY e.`Role`
-  WHERE s.`Facility Name` = $name AND s.`Facility Phone Number` = $phone_number
 	ORDER BY e.`Role` ASC");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>

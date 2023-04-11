@@ -7,8 +7,11 @@
 
   $r = mysqli_query($db, "SELECT *
 	FROM Log l
-  WHERE l.`Sender` = $name
-	ORDER BY e.`Date` ASC");
+  WHERE l.`Sender` = '$name'
+	ORDER BY l.`Date` ASC");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>

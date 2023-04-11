@@ -23,7 +23,7 @@
       <hr class="solid">
       <div class="grid">
         <h4>
-          <form action="create_facility()" style="margin-bottom:24px;" class="grid-form">
+          <form action="/create" style="margin-bottom:24px;" class="grid-form">
             <label for="name">Name:</label>
             <input type="text" class="boxsizingBorder" id="name" name="name">
             <br>

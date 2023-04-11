@@ -8,9 +8,12 @@
   $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, e.`Role`
 	FROM Employee e
 	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE s.`Start Time` >= date_add(current_date(), INTERVAL -2 week) AND (e.`Role` = 'Doctor' OR e.`Role` = 'Nurse') AND s.`Facility Name` = '$name'
   GROUP BY e.`Medicare Number`
-	WHERE s.`Start Time` <= DATEADD(week, -2, GETDATE()) AND (e.`Role` = `Doctor` OR e.`Role` = 'Nurse') AND s.`Facility Name` = $name
 	ORDER BY e.`First Name` ASC");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>

@@ -11,9 +11,12 @@
 	JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
 	JOIN Employee e ON e.`Medicare Number` = ed.`Medicare Number`
 	JOIN PostalCode pc ON pc.`Postal Code` = e.`Postal Code`
+	WHERE f.Name = '$name' AND f.`Phone Number` = '$phone_number' AND ed.`End Date` IS NULL 
   GROUP BY e.`Medicare Number`
-	WHERE f.Name = $name AND f.`Phone Number` = $phone_number AND ed.`End Date` IS NULL 
 	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC;");  
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>
