@@ -284,63 +284,63 @@ VALUES('Pfizer', 5, '514-444-3456', 'Canada National Hospital', 'KWEA86549568275
 -- Insert Infection
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-01', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-02', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-03', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-04', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-05', 'KWEA865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-06', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-07', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-08', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-09', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-10', 'KWEA865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-05', 'ASMI865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-04', 'BSHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-03', 'CWHE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('Influenza', '2023-04-02', 'ROLE865495682758');
 
 INSERT INTO Infection
-('Type', 'Date', 'Medicare Number')
+('Type', 'Date', 'Employee Medicare Number')
 VALUES('COVID-19', '2023-04-01', 'KWEA865495682758');
 
 -- -----------------------
