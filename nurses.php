@@ -1,15 +1,15 @@
 <?php
   include "init_db.php";
 
-  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, pe.`City` as `City of Residence`, SUM(f) as `Current Facilities`
+  $r = mysqli_query($db, "SELECT e.`First Name`, e.`Last Name`, ed.`Start Date`, e.`Birth Date`, e.`Email`, SUM(TIMESTAMPDIFF(Hour, s.`Start Time`, s.`End Time`)) as Hours
 	FROM Employee e
   JOIN Employed ed ON e.`Medicare Number` = ed.`Medicare Number`
-  JOIN Facility f ON f.`Name` = ed.`Facility Name` AND f.`Phone Number` = ed.`Facility Phone Number`
-  JOIN PostalCode p ON p.`Postal Code` = f.`Postal Code`
-  JOIN PostalCode pe ON pe.`Postal Code` = e.`Postal Code`
-  GROUP BY e.`Medicare Number`
-	WHERE e.`Role` =  `Doctor` AND p.`Province` = `Quebec`
-	ORDER BY p.`City` ASC, SUM(p) DESC;");
+  JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE e.`Role` = 'Nurse' AND (SELECT SUM(TIMESTAMPDIFF(Hour, s.`Start Time`, s.`End Time`)) FROM Scheduled s WHERE s.`Employee Medicare Number` = e.`Medicare Number` GROUP BY s.`Employee Medicare Number`)
+  GROUP BY e.`Medicare Number`");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +35,10 @@
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>City of Residence</th>
-        <th>Current Facilities</th>
+        <th>Start Date</th>
+        <th>Birth Date</th>
+        <th>Email</th>
+        <th>Hours</th>
       </tr>
       <?php
       while(true) {
@@ -46,9 +48,10 @@
         }
         echo("<tr><td>".$assoc["First Name"]."</td>"
         ."<td>".$assoc["Last Name"]."</td>"
-        ."<td>".$assoc["First Name"]."</td>"
-        ."<td>".$assoc["City of Residence"]."</td>"
-        ."<td>".$assoc["Current Facilities"]."</td></tr>");
+        ."<td>".$assoc["Start Date"]."</td>"
+        ."<td>".$assoc["Birth Date"]."</td>"
+        ."<td>".$assoc["Email"]."</td>"
+        ."<td>".$assoc["Hours"]."</td></tr>");
       }
       ?>  
       </table>

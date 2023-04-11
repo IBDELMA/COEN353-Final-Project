@@ -8,6 +8,9 @@
 	WHERE ed.`End Date` IS NULL
 	GROUP BY f.Name, f.`Phone Number` 
 	ORDER BY pc.Province, pc.City, f.`Type`, `Number of Current Employees` ASC;");  
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
   // Name, `Phone_Number`, Address, `Postal_Code`, Capacity, `Type`, `Web_Address`, `Manager_Medicare_Number`
 ?>
 

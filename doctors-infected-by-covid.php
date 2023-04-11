@@ -1,12 +1,15 @@
 <?php
   include "init_db.php";
 
-  $r = mysqli_query($db, "SELECT e.`First Name`,  e.`Last Name`, i.`Date`, e.`Facility`
+  $r = mysqli_query($db, "SELECT e.`First Name`,  e.`Last Name`, i.`Date`, ed.`Facility Name`
 	FROM Employee e
 	JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
 	JOIN Infection i ON i.`Employee Medicare Number` = e.`Medicare Number`
-	WHERE e.`Role` =  `Doctor` AND i.`Date` <= DATEADD(week, -2, GETDATE()) IS NOT NULL
-	ORDER BY e.`Facility` ASC");
+	WHERE e.`Role` = 'Doctor' AND i.`Date` >= DATE_ADD(current_date(), INTERVAL -2 week)
+	ORDER BY ed.`Facility Name` ASC;");
+  if(is_bool($r) && !$r) {
+    echo("Query error: ".$db -> error);
+  }
 ?>
 
 <!DOCTYPE html>

@@ -6,7 +6,7 @@
   JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
   JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
   GROUP BY e.`Medicare Number`
-	WHERE (e.`Role` = `Manager` OR e.`Role` = 'Nurse') AND e.`Medicare Number` NOT IN (SELECT `Employee Medicare Number` FROM Infection)
+	WHERE (e.`Role` = 'Manager' OR e.`Role` = 'Nurse') AND e.`Medicare Number` NOT IN (SELECT `Employee Medicare Number` FROM Infection)
 	ORDER BY e.`Role`, e.`First Name`, e.`Last Name` ASC");
 ?>
 
