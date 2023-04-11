@@ -5,7 +5,7 @@
 	FROM Employee e
 	JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
 	JOIN Infection i ON i.`Employee Medicare Number` = e.`Medicare Number`
-	WHERE e.`Role` =  `Doctor` AND i.`Date` IS NOT NULL
+	WHERE e.`Role` =  `Doctor` AND i.`Date` <= DATEADD(week, -2, GETDATE()) IS NOT NULL
 	ORDER BY e.`Facility` ASC");
 ?>
 
