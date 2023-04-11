@@ -40,7 +40,7 @@ SELECT e.`Email`
 	ORDER BY e.`Start Date` ASC
 
 -- Query #11
-SELECT e.`Firt Name`, e.`Last Name`, e.`Role`
+SELECT e.`First Name`, e.`Last Name`, e.`Role`
 	FROM Employee e
 	JOIN Scheduled s ON s.`Employee Medicare Number` = e.`Medicare Number`
 	WHERE s.`Start Time` <= DATEADD(week, -2, GETDATE()) AND (e.`Role` = `Doctor` OR e.`Role` = 'Nurse')

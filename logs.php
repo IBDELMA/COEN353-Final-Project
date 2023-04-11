@@ -4,6 +4,11 @@
   $queries = array();
   parse_str($_SERVER['QUERY_STRING'], $queries);
   $name = $queries["name"];
+
+  $r = mysqli_query($db, "SELECT *
+	FROM Log l
+  WHERE l.`Sender` = $name
+	ORDER BY e.`Date` ASC");
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +35,33 @@
         echo("Sender: ".$name);
         ?>
       </div>
+
+      <table border='1'>
+      <tr>
+        <th>ID</th>
+        <th>Last Name</th>
+        <th>Date</th>
+        <th>Receiver</th>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Body</th>
+      </tr>
+      <?php
+      while(true) {
+        $assoc = mysqli_fetch_assoc($r);
+        if($assoc == null) {
+          break;
+        }
+        echo("<tr><td>".$assoc["ID"]."</td>"
+        ."<td>".$assoc["Last Name"]."</td>"
+        ."<td>".$assoc["Date"]."</td>"
+        ."<td>".$assoc["Receiver"]."</td>"
+        ."<td>".$assoc["Sender"]."</td>"
+        ."<td>".$assoc["Subject"]."</td>"
+        ."<td>".$assoc["Body"]."</td></tr>");
+      }
+      ?>  
+      </table>
     </div>
   </div>
 </body>

@@ -1,5 +1,9 @@
 <?php
   include "init_db.php";
+
+  $r = mysqli_query($db, "SELECT *
+	FROM Infection e
+	ORDER BY e.`Date` ASC");
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +25,24 @@
       <h1 style="margin-bottom:12px;">
         Infections (4)
       </h1>
+      <table border='1'>
+      <tr>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Employee Medicare Number</th>
+      </tr>
+      <?php
+      while(true) {
+        $assoc = mysqli_fetch_assoc($r);
+        if($assoc == null) {
+          break;
+        }
+        echo("<tr><td>".$assoc["Type"]."</td>"
+        ."<td>".$assoc["Date"]."</td>"
+        ."<td>".$assoc["Employee Medicare Number"]."</td></tr>");
+      }
+      ?>  
+      </table>
     </div>
   </div>
 </body>

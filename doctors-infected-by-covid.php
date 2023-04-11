@@ -1,5 +1,12 @@
 <?php
   include "init_db.php";
+
+  $r = mysqli_query($db, "SELECT e.`First Name`,  e.`Last Name`, i.`Date`, e.`Facility`
+	FROM Employee e
+	JOIN Employed ed ON ed.`Medicare Number` = e.`Medicare Number`
+	JOIN Infection i ON i.`Employee Medicare Number` = e.`Medicare Number`
+	WHERE e.`Role` =  `Doctor` AND i.`Date` IS NOT NULL
+	ORDER BY e.`Facility` ASC");
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +28,26 @@
       <h1 style="margin-bottom:12px;">
         Doctors infected by COVID (9)
       </h1>
+      <table border='1'>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date</th>
+        <th>Facility</th>
+      </tr>
+      <?php
+      while(true) {
+        $assoc = mysqli_fetch_assoc($r);
+        if($assoc == null) {
+          break;
+        }
+        echo("<tr><td>".$assoc["First Name"]."</td>"
+        ."<td>".$assoc["Last Name"]."</td>"
+        ."<td>".$assoc["Date"]."</td>"
+        ."<td>".$assoc["Facility"]."</td></tr>");
+      }
+      ?>  
+      </table>
     </div>
   </div>
 </body>
