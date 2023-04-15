@@ -1,7 +1,3 @@
-<?php
-  include "init_db.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,12 +19,13 @@
       <hr class="solid">
       <div class="grid">
         <h4>
-          <form action="/create" style="margin-bottom:24px;" class="grid-form">
+          <form action="/_mutation.php" style="margin-bottom:24px;" class="grid-form">
+            <input type="hidden" id="action" name="action" value="create-facility">
             <label for="name">Name:</label>
             <input type="text" class="boxsizingBorder" id="name" name="name">
             <br>
-            <label for="phone-number">Phone Number:</label>
-            <input type="text" class="boxsizingBorder" id="phone-number" name="phone-number">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" class="boxsizingBorder" id="phone_number" name="phone_number">
             <br>
             <label for="address">Address:</label>
             <input type="text" class="boxsizingBorder" id="address" name="address">
@@ -60,7 +57,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:20px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="create-employee">
             <label for="medicare_number">Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="medicare_number" name="medicare_number">
             <br>
@@ -103,7 +101,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="create-schedule">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -128,7 +127,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="create-vaccination">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -153,7 +153,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="create-infection">
             <label for="employee_medicare_number">Employee Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="employee_medicare_number" name="employee_medicare_number">
             <br>
@@ -172,12 +173,13 @@
       <hr class="solid">
       <div class="grid">
         <h4>
-          <form action="create_facility()" style="margin-bottom:24px;" class="grid-form">
+          <form action="/_mutation.php" style="margin-bottom:24px;" class="grid-form">
+            <input type="hidden" id="action" name="action" value="update-facility">
             <label for="name">Name:</label>
             <input type="text" class="boxsizingBorder" id="name" name="name">
             <br>
-            <label for="phone-number">Phone Number:</label>
-            <input type="text" class="boxsizingBorder" id="phone-number" name="phone-number">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" class="boxsizingBorder" id="phone_number" name="phone_number">
             <br>
             <label for="address">Address:</label>
             <input type="text" class="boxsizingBorder" id="address" name="address">
@@ -209,7 +211,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:20px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="update-employee">
             <label for="medicare_number">Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="medicare_number" name="medicare_number">
             <br>
@@ -252,7 +255,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="update-schedule">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -277,7 +281,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="update-vaccination">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -302,7 +307,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="update-infection">
             <label for="employee_medicare_number">Employee Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="employee_medicare_number" name="employee_medicare_number">
             <br>
@@ -321,12 +327,13 @@
       <hr class="solid">
       <div class="grid">
         <h4>
-          <form action="create_facility()" style="margin-bottom:24px;" class="grid-form">
+          <form action="/_mutation.php" style="margin-bottom:24px;" class="grid-form">
+            <input type="hidden" id="action" name="action" value="delete-facility">
             <label for="name">Name:</label>
             <input type="text" class="boxsizingBorder" id="name" name="name">
             <br>
-            <label for="phone-number">Phone Number:</label>
-            <input type="text" class="boxsizingBorder" id="phone-number" name="phone-number">
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" class="boxsizingBorder" id="phone_number" name="phone_number">
             <br>
             <div style="display:flex;justify-content: center;">
               <input type="submit" value="Delete Facility" style="width:180px">
@@ -334,7 +341,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:20px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="delete-employee">
             <label for="medicare_number">Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="medicare_number" name="medicare_number">
             <br>
@@ -344,7 +352,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="delete-schedule">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -366,7 +375,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="delete-vaccination">
             <label for="faculty_phone_number">Faculty Phone Number:</label>
             <input type="text" class="boxsizingBorder" id="faculty_phone_number" name="faculty_phone_number">
             <br>
@@ -388,7 +398,8 @@
           </form>
         </h4>
         <h4 style="margin-bottom:12px;">
-          <form action="create_employee()" class="grid-form">
+          <form action="/_mutation.php" class="grid-form">
+            <input type="hidden" id="action" name="action" value="delete-infection">
             <label for="employee_medicare_number">Employee Medicare Number:</label>
             <input type="text" class="boxsizingBorder" id="employee_medicare_number" name="employee_medicare_number">
             <br>

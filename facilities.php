@@ -4,7 +4,7 @@
 	FROM Facility f
 	JOIN Employee e ON e.`Medicare Number` = f.`Manager Medicare Number`
 	JOIN PostalCode pc ON pc.`Postal Code` = f.`Postal Code`
-	JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
+	LEFT JOIN Employed ed ON ed.`Facility Name` = f.Name AND ed.`Facility Phone Number` = f.`Phone Number`
 	GROUP BY f.Name, f.`Phone Number` 
 	ORDER BY pc.Province, pc.City, f.`Type`, `Number of Current Employees` ASC;");  
   if(is_bool($r) && !$r) {
