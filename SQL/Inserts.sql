@@ -192,23 +192,23 @@ VALUES('CLSC Concordia', '514-555-6161', 'ASMI865495682758', '2020-02-02', '2021
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
-VALUES('CLSC Concordia', '514-555-6161', 'LANG865495682758', '2020-03-03', '2021-04-04');
+VALUES('CLSC Concordia', '514-555-6161', 'LANG865495682758', '2021-03-03', NULL);
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
-VALUES('PJC Snowden', '514-444-8123', 'DFLE865495682758', '2020-04-04', '2021-05-05');
+VALUES('PJC Snowden', '514-444-8123', 'DFLE865495682758', '2020-04-04', NULL);
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
-VALUES('PJC Snowden', '514-444-8123', 'BSHE865495682758', '2020-05-05', '2021-06-06');
+VALUES('PJC Snowden', '514-444-8123', 'BSHE865495682758', '2021-05-05', '2022-06-06');
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
-VALUES('PJC Snowden', '514-444-8123', 'MSTO865495682758', '2020-06-06', '2021-07-07');
+VALUES('PJC Snowden', '514-444-8123', 'MSTO865495682758', '2022-06-06', NULL);
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
-VALUES('Central Hospital', '514-444-1234', 'EMIL865495682758', '2021-02-02', '2022-03-03');
+VALUES('Central Hospital', '514-444-1234', 'EMIL865495682758', '2021-02-02', NULL);
 
 INSERT INTO Employed
 (`Facility Name`, `Facility Phone Number`, `Medicare Number`, `Start Date`, `End Date`)
@@ -347,6 +347,14 @@ VALUES('COVID-19', '2023-04-01', 'KWEA865495682758');
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
+VALUES('PJC Snowden', '514-444-8123', 'ROLE865495682758', '9:00', '14:00', '2023-04-08');
+
+INSERT INTO Scheduled
+(`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
+VALUES('PJC Snowden', '514-444-8123', 'ROLE865495682758', '22:30', '23:30', '2023-04-08');
+
+INSERT INTO Scheduled
+(`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
 VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:00', '14:00', '2023-04-04');
 
 INSERT INTO Scheduled
@@ -355,7 +363,7 @@ VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:00', '
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
-VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:00', '14:00', '2023-04-06');
+VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '17:00', '21:00', '2023-04-07');
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
@@ -363,7 +371,11 @@ VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:00', '
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
-VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:00', '14:00', '2023-04-08');
+VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '10:00', '17:00', '2023-04-08');
+
+INSERT INTO Scheduled
+(`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
+VALUES('Canada National Hospital', '514-444-3456', 'JHUN865495682758', '9:30', '16:00', '2023-03-15');
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
@@ -379,7 +391,7 @@ VALUES('Canada National Hospital', '514-444-3456', 'OHAG865495682758', '9:00', '
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
-VALUES('Canada National Hospital', '514-444-3456', 'ROLE865495682758', '9:00', '14:00', '2023-04-08');
+VALUES('Canada National Hospital', '514-444-3456', 'ROLE865495682758', '15:00', '20:30', '2023-04-08');
 
 INSERT INTO Scheduled
 (`Facility Name`, `Facility Phone Number`, `Employee Medicare Number`, `Start Time`, `End Time`, `Date`)
