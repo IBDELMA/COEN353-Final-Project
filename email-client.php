@@ -15,13 +15,17 @@ if (!$assoc){
 $i = 0;
 $logInsertArray = array();
 while (!is_null($assoc)){
-    $facilityName = mysqli_real_escape_string($db, $assoc["Facility Name"]);
-    $recipient = mysqli_real_escape_string($db, $assoc["Recipient"]);
-    $subject = mysqli_real_escape_string($db, $assoc["Subject"]);
-    $content = mysqli_real_escape_string($db, $assoc["Content"]);
-
+    $facilityName = $assoc["Facility Name"];
+    $recipient = $assoc["Recipient"];
+    $subject = $assoc["Subject"];
+    $content = $assoc["Content"];
     $shellOutput = shell_exec("echo \"$content\" | mail -s \"$subject\" jonnam2@gmail.com");
-    $logInsertQuery = "INSERT INTO Log (`Date`, Receiver, Sender, Subject, Body) VALUES(CURDATE(), '$recipient', '$facilityName', '$subject', '$content')";
+    
+    $facilityName = mysqli_real_escape_string($db, $facilityName);
+    $recipient = mysqli_real_escape_string($db, $recipient);
+    $subject = mysqli_real_escape_string($db, $subject);
+    $content = mysqli_real_escape_string($db, substr($content, 0, 80));
+    $logInsertQuery = "INSERT INTO Log (`Date`, Receiver, Sender, Subject, Body) VALUES(NOW(), '$recipient', '$facilityName', '$subject', '$content')";
     $logInsertArray[$i] = $logInsertQuery;
     $i++;
     $assoc = mysqli_fetch_assoc($r);
@@ -32,11 +36,7 @@ mysqli_multi_query($db, "UNLOCK TABLES; DELETE FROM MailStack;");
 while (mysqli_next_result($db)) {;}
 
 foreach ($logInsertArray as $query){
-    echo($logInsertQuery. "\n");
     $res = mysqli_query($db, $logInsertQuery);
-    if ($res){
-        echo("Success!\n");
-    }
 }
 echo("$i emails were sent at " . date('m/d/Y h:i:s a') . "\n");
 ?>
