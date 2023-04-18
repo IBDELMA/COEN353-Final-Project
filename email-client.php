@@ -36,7 +36,7 @@ mysqli_multi_query($db, "UNLOCK TABLES; DELETE FROM MailStack;");
 while (mysqli_next_result($db)) {;}
 
 foreach ($logInsertArray as $query){
-    $res = mysqli_query($db, $logInsertQuery);
+    $res = mysqli_query($db, $query);
 }
 echo("$i emails were sent at " . date('m/d/Y h:i:s a') . "\n");
 
