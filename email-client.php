@@ -39,4 +39,8 @@ foreach ($logInsertArray as $query){
     $res = mysqli_query($db, $logInsertQuery);
 }
 echo("$i emails were sent at " . date('m/d/Y h:i:s a') . "\n");
+
+// crontab commands to execution every 30 seconds
+// * * * * * /encs/pkg/php-5.5.38/root/bin/php -f /home/j/j_perl/353email/email-test.php >/dev/null 2>&1
+// * * * * * (sleep 30; /encs/pkg/php-5.5.38/root/bin/php -f /home/j/j_perl/353email/email-test.php) >/dev/null 2>&1
 ?>
